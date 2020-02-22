@@ -1,4 +1,5 @@
 const express = require("express");
+
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -9,18 +10,21 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
+  app.use(express.static("client/build"));
 }
+
 // Add routes, both API and view
 app.use(routes);
 
 // Connect to the MongoDB
 mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://user1:password1@ds125871.mlab.com:25871/heroku_0xn0jnk7",
+    process.env.MONGODB_URI || "mongodb://localhost:27017/myapp",
     {
         useCreateIndex: true,
-        useNewUrlParser: true
-    }
+        useNewUrlParser: true,
+        useUnifiedTopology: true 
+    },
+    console.log("Connected to MongoDB!")
 );
 
 // Start the API server
