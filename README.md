@@ -2,7 +2,7 @@
 This is a React App designed to integrate React, Node, and MongoDB
 
 ## Link
-Find the deployed website here: 
+Find the deployed website here: https://frozen-lowlands-07221.herokuapp.com/
 
 ## Technologies Used
 - Node.js
